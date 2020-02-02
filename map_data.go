@@ -8,12 +8,12 @@ import (
 
 // InitializeMap builds the in-memory game board representation
 func (m *Map) InitializeMap() {
-	m.vertices = make(map[types.Vertex]types.Edges, 201)
+	m.vertices = make(map[types.Vertex][]types.Edge, 201)
 	for pos := range m.vertices {
 		m.vertices[pos] = make([]types.Edge, 0)
 	}
 
-	m.vertices[types.Vertex(1)] = types.Edges{
+	m.vertices[types.Vertex(1)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(8),
@@ -36,7 +36,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(2)] = types.Edges{
+	m.vertices[types.Vertex(2)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(10),
@@ -47,7 +47,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(3)] = types.Edges{
+	m.vertices[types.Vertex(3)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(4),
@@ -70,7 +70,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(4)] = types.Edges{
+	m.vertices[types.Vertex(4)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(3),
@@ -81,7 +81,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(5)] = types.Edges{
+	m.vertices[types.Vertex(5)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(15),
@@ -92,7 +92,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(6)] = types.Edges{
+	m.vertices[types.Vertex(6)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(7),
@@ -103,7 +103,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(7)] = types.Edges{
+	m.vertices[types.Vertex(7)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(6),
@@ -118,7 +118,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(8)] = types.Edges{
+	m.vertices[types.Vertex(8)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(1),
@@ -133,7 +133,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(9)] = types.Edges{
+	m.vertices[types.Vertex(9)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(1),
@@ -148,7 +148,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(10)] = types.Edges{
+	m.vertices[types.Vertex(10)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(2),
@@ -167,7 +167,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(11)] = types.Edges{
+	m.vertices[types.Vertex(11)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(3),
@@ -182,7 +182,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(12)] = types.Edges{
+	m.vertices[types.Vertex(12)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(3),
@@ -193,7 +193,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(13)] = types.Edges{
+	m.vertices[types.Vertex(13)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(4),
@@ -236,7 +236,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(14)] = types.Edges{
+	m.vertices[types.Vertex(14)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(13),
@@ -259,7 +259,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(15)] = types.Edges{
+	m.vertices[types.Vertex(15)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(5),
@@ -294,7 +294,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(16)] = types.Edges{
+	m.vertices[types.Vertex(16)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(5),
@@ -313,7 +313,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(17)] = types.Edges{
+	m.vertices[types.Vertex(17)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(7),
@@ -328,7 +328,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(18)] = types.Edges{
+	m.vertices[types.Vertex(18)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(8),
@@ -343,7 +343,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(19)] = types.Edges{
+	m.vertices[types.Vertex(19)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(8),
@@ -358,7 +358,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(20)] = types.Edges{
+	m.vertices[types.Vertex(20)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(2),
@@ -373,7 +373,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(21)] = types.Edges{
+	m.vertices[types.Vertex(21)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(10),
@@ -384,7 +384,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(22)] = types.Edges{
+	m.vertices[types.Vertex(22)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(3),
@@ -419,7 +419,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(23)] = types.Edges{
+	m.vertices[types.Vertex(23)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(3),
@@ -454,7 +454,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(24)] = types.Edges{
+	m.vertices[types.Vertex(24)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(13),
@@ -469,7 +469,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(25)] = types.Edges{
+	m.vertices[types.Vertex(25)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(14),
@@ -484,7 +484,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(26)] = types.Edges{
+	m.vertices[types.Vertex(26)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(15),
@@ -499,7 +499,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(27)] = types.Edges{
+	m.vertices[types.Vertex(27)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(26),
@@ -514,7 +514,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(28)] = types.Edges{
+	m.vertices[types.Vertex(28)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(15),
@@ -533,7 +533,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(29)] = types.Edges{
+	m.vertices[types.Vertex(29)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(6),
@@ -572,7 +572,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(30)] = types.Edges{
+	m.vertices[types.Vertex(30)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(17),
@@ -583,7 +583,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(31)] = types.Edges{
+	m.vertices[types.Vertex(31)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(18),
@@ -598,7 +598,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(32)] = types.Edges{
+	m.vertices[types.Vertex(32)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(19),
@@ -617,7 +617,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(33)] = types.Edges{
+	m.vertices[types.Vertex(33)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(20),
@@ -636,7 +636,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(34)] = types.Edges{
+	m.vertices[types.Vertex(34)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(10),
@@ -667,7 +667,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(35)] = types.Edges{
+	m.vertices[types.Vertex(35)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(22),
@@ -686,7 +686,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(36)] = types.Edges{
+	m.vertices[types.Vertex(36)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(35),
@@ -701,7 +701,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(37)] = types.Edges{
+	m.vertices[types.Vertex(37)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(23),
@@ -720,7 +720,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(38)] = types.Edges{
+	m.vertices[types.Vertex(38)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(24),
@@ -739,7 +739,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(39)] = types.Edges{
+	m.vertices[types.Vertex(39)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(25),
@@ -758,7 +758,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(40)] = types.Edges{
+	m.vertices[types.Vertex(40)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(27),
@@ -777,7 +777,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(41)] = types.Edges{
+	m.vertices[types.Vertex(41)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(15),
@@ -812,7 +812,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(42)] = types.Edges{
+	m.vertices[types.Vertex(42)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(7),
@@ -843,7 +843,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(43)] = types.Edges{
+	m.vertices[types.Vertex(43)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(18),
@@ -858,7 +858,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(44)] = types.Edges{
+	m.vertices[types.Vertex(44)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(31),
@@ -873,7 +873,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(45)] = types.Edges{
+	m.vertices[types.Vertex(45)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(32),
@@ -896,7 +896,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(46)] = types.Edges{
+	m.vertices[types.Vertex(46)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(1),
@@ -947,7 +947,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(47)] = types.Edges{
+	m.vertices[types.Vertex(47)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(34),
@@ -962,7 +962,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(48)] = types.Edges{
+	m.vertices[types.Vertex(48)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(34),
@@ -981,7 +981,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(49)] = types.Edges{
+	m.vertices[types.Vertex(49)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(36),
@@ -996,7 +996,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(50)] = types.Edges{
+	m.vertices[types.Vertex(50)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(37),
@@ -1011,7 +1011,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(51)] = types.Edges{
+	m.vertices[types.Vertex(51)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(38),
@@ -1034,7 +1034,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(52)] = types.Edges{
+	m.vertices[types.Vertex(52)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(13),
@@ -1069,7 +1069,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(53)] = types.Edges{
+	m.vertices[types.Vertex(53)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(40),
@@ -1084,7 +1084,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(54)] = types.Edges{
+	m.vertices[types.Vertex(54)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(41),
@@ -1103,7 +1103,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(55)] = types.Edges{
+	m.vertices[types.Vertex(55)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(29),
@@ -1122,7 +1122,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(56)] = types.Edges{
+	m.vertices[types.Vertex(56)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(42),
@@ -1133,7 +1133,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(57)] = types.Edges{
+	m.vertices[types.Vertex(57)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(43),
@@ -1148,7 +1148,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(58)] = types.Edges{
+	m.vertices[types.Vertex(58)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(1),
@@ -1191,7 +1191,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(59)] = types.Edges{
+	m.vertices[types.Vertex(59)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(45),
@@ -1210,7 +1210,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(60)] = types.Edges{
+	m.vertices[types.Vertex(60)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(45),
@@ -1225,7 +1225,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(61)] = types.Edges{
+	m.vertices[types.Vertex(61)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(46),
@@ -1248,7 +1248,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(62)] = types.Edges{
+	m.vertices[types.Vertex(62)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(47),
@@ -1267,7 +1267,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(63)] = types.Edges{
+	m.vertices[types.Vertex(63)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(34),
@@ -1302,7 +1302,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(64)] = types.Edges{
+	m.vertices[types.Vertex(64)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(63),
@@ -1317,7 +1317,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(65)] = types.Edges{
+	m.vertices[types.Vertex(65)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(22),
@@ -1352,7 +1352,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(66)] = types.Edges{
+	m.vertices[types.Vertex(66)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(49),
@@ -1371,7 +1371,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(67)] = types.Edges{
+	m.vertices[types.Vertex(67)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(13),
@@ -1426,7 +1426,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(68)] = types.Edges{
+	m.vertices[types.Vertex(68)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(51),
@@ -1445,7 +1445,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(69)] = types.Edges{
+	m.vertices[types.Vertex(69)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(52),
@@ -1464,7 +1464,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(70)] = types.Edges{
+	m.vertices[types.Vertex(70)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(54),
@@ -1479,7 +1479,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(71)] = types.Edges{
+	m.vertices[types.Vertex(71)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(55),
@@ -1498,7 +1498,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(72)] = types.Edges{
+	m.vertices[types.Vertex(72)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(42),
@@ -1529,7 +1529,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(73)] = types.Edges{
+	m.vertices[types.Vertex(73)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(57),
@@ -1544,7 +1544,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(74)] = types.Edges{
+	m.vertices[types.Vertex(74)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(46),
@@ -1575,7 +1575,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(75)] = types.Edges{
+	m.vertices[types.Vertex(75)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(58),
@@ -1594,7 +1594,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(76)] = types.Edges{
+	m.vertices[types.Vertex(76)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(59),
@@ -1613,7 +1613,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(77)] = types.Edges{
+	m.vertices[types.Vertex(77)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(58),
@@ -1648,7 +1648,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(78)] = types.Edges{
+	m.vertices[types.Vertex(78)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(46),
@@ -1679,7 +1679,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(79)] = types.Edges{
+	m.vertices[types.Vertex(79)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(46),
@@ -1722,7 +1722,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(80)] = types.Edges{
+	m.vertices[types.Vertex(80)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(63),
@@ -1737,7 +1737,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(81)] = types.Edges{
+	m.vertices[types.Vertex(81)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(64),
@@ -1752,7 +1752,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(82)] = types.Edges{
+	m.vertices[types.Vertex(82)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(65),
@@ -1787,7 +1787,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(83)] = types.Edges{
+	m.vertices[types.Vertex(83)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(101),
@@ -1798,7 +1798,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(84)] = types.Edges{
+	m.vertices[types.Vertex(84)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(67),
@@ -1809,7 +1809,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(85)] = types.Edges{
+	m.vertices[types.Vertex(85)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(68),
@@ -1824,7 +1824,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(86)] = types.Edges{
+	m.vertices[types.Vertex(86)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(52),
@@ -1855,7 +1855,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(87)] = types.Edges{
+	m.vertices[types.Vertex(87)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(41),
@@ -1878,7 +1878,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(88)] = types.Edges{
+	m.vertices[types.Vertex(88)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(87),
@@ -1893,7 +1893,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(89)] = types.Edges{
+	m.vertices[types.Vertex(89)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(13),
@@ -1932,7 +1932,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(90)] = types.Edges{
+	m.vertices[types.Vertex(90)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(72),
@@ -1947,7 +1947,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(91)] = types.Edges{
+	m.vertices[types.Vertex(91)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(56),
@@ -1970,7 +1970,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(92)] = types.Edges{
+	m.vertices[types.Vertex(92)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(73),
@@ -1985,7 +1985,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(93)] = types.Edges{
+	m.vertices[types.Vertex(93)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(79),
@@ -2004,7 +2004,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(94)] = types.Edges{
+	m.vertices[types.Vertex(94)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(74),
@@ -2031,7 +2031,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(95)] = types.Edges{
+	m.vertices[types.Vertex(95)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(77),
@@ -2046,7 +2046,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(96)] = types.Edges{
+	m.vertices[types.Vertex(96)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(77),
@@ -2061,7 +2061,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(97)] = types.Edges{
+	m.vertices[types.Vertex(97)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(78),
@@ -2080,7 +2080,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(98)] = types.Edges{
+	m.vertices[types.Vertex(98)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(79),
@@ -2099,7 +2099,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(99)] = types.Edges{
+	m.vertices[types.Vertex(99)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(80),
@@ -2118,7 +2118,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(100)] = types.Edges{
+	m.vertices[types.Vertex(100)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(63),
@@ -2153,7 +2153,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(101)] = types.Edges{
+	m.vertices[types.Vertex(101)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(82),
@@ -2172,7 +2172,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(102)] = types.Edges{
+	m.vertices[types.Vertex(102)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(67),
@@ -2199,7 +2199,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(103)] = types.Edges{
+	m.vertices[types.Vertex(103)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(85),
@@ -2214,7 +2214,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(104)] = types.Edges{
+	m.vertices[types.Vertex(104)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(86),
@@ -2225,7 +2225,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(105)] = types.Edges{
+	m.vertices[types.Vertex(105)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(72),
@@ -2268,7 +2268,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(106)] = types.Edges{
+	m.vertices[types.Vertex(106)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(105),
@@ -2279,7 +2279,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(107)] = types.Edges{
+	m.vertices[types.Vertex(107)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(72),
@@ -2306,7 +2306,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(108)] = types.Edges{
+	m.vertices[types.Vertex(108)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(105),
@@ -2337,7 +2337,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(109)] = types.Edges{
+	m.vertices[types.Vertex(109)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(96),
@@ -2356,7 +2356,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(110)] = types.Edges{
+	m.vertices[types.Vertex(110)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(98),
@@ -2375,7 +2375,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(111)] = types.Edges{
+	m.vertices[types.Vertex(111)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(67),
@@ -2414,7 +2414,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(112)] = types.Edges{
+	m.vertices[types.Vertex(112)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(99),
@@ -2433,7 +2433,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(113)] = types.Edges{
+	m.vertices[types.Vertex(113)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(100),
@@ -2448,7 +2448,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(114)] = types.Edges{
+	m.vertices[types.Vertex(114)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(101),
@@ -2475,7 +2475,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(115)] = types.Edges{
+	m.vertices[types.Vertex(115)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(102),
@@ -2502,7 +2502,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(116)] = types.Edges{
+	m.vertices[types.Vertex(116)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(86),
@@ -2537,7 +2537,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(117)] = types.Edges{
+	m.vertices[types.Vertex(117)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(88),
@@ -2556,7 +2556,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(118)] = types.Edges{
+	m.vertices[types.Vertex(118)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(116),
@@ -2575,7 +2575,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(119)] = types.Edges{
+	m.vertices[types.Vertex(119)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(107),
@@ -2590,7 +2590,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(120)] = types.Edges{
+	m.vertices[types.Vertex(120)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(121),
@@ -2601,7 +2601,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(121)] = types.Edges{
+	m.vertices[types.Vertex(121)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(120),
@@ -2616,7 +2616,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(122)] = types.Edges{
+	m.vertices[types.Vertex(122)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(95),
@@ -2643,7 +2643,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(123)] = types.Edges{
+	m.vertices[types.Vertex(123)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(122),
@@ -2682,7 +2682,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(124)] = types.Edges{
+	m.vertices[types.Vertex(124)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(77),
@@ -2729,7 +2729,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(125)] = types.Edges{
+	m.vertices[types.Vertex(125)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(112),
@@ -2744,7 +2744,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(126)] = types.Edges{
+	m.vertices[types.Vertex(126)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(114),
@@ -2763,7 +2763,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(127)] = types.Edges{
+	m.vertices[types.Vertex(127)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(102),
@@ -2798,7 +2798,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(128)] = types.Edges{
+	m.vertices[types.Vertex(128)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(89),
@@ -2853,7 +2853,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(129)] = types.Edges{
+	m.vertices[types.Vertex(129)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(117),
@@ -2876,7 +2876,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(130)] = types.Edges{
+	m.vertices[types.Vertex(130)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(124),
@@ -2891,7 +2891,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(131)] = types.Edges{
+	m.vertices[types.Vertex(131)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(114),
@@ -2906,7 +2906,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(132)] = types.Edges{
+	m.vertices[types.Vertex(132)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(114),
@@ -2917,7 +2917,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(133)] = types.Edges{
+	m.vertices[types.Vertex(133)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(127),
@@ -2944,7 +2944,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(134)] = types.Edges{
+	m.vertices[types.Vertex(134)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(118),
@@ -2963,7 +2963,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(135)] = types.Edges{
+	m.vertices[types.Vertex(135)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(108),
@@ -2994,7 +2994,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(136)] = types.Edges{
+	m.vertices[types.Vertex(136)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(119),
@@ -3009,7 +3009,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(137)] = types.Edges{
+	m.vertices[types.Vertex(137)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(123),
@@ -3020,7 +3020,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(138)] = types.Edges{
+	m.vertices[types.Vertex(138)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(124),
@@ -3039,7 +3039,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(139)] = types.Edges{
+	m.vertices[types.Vertex(139)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(130),
@@ -3058,7 +3058,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(140)] = types.Edges{
+	m.vertices[types.Vertex(140)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(82),
@@ -3113,7 +3113,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(141)] = types.Edges{
+	m.vertices[types.Vertex(141)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(133),
@@ -3132,7 +3132,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(142)] = types.Edges{
+	m.vertices[types.Vertex(142)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(116),
@@ -3175,7 +3175,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(143)] = types.Edges{
+	m.vertices[types.Vertex(143)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(128),
@@ -3198,7 +3198,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(144)] = types.Edges{
+	m.vertices[types.Vertex(144)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(120),
@@ -3225,7 +3225,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(145)] = types.Edges{
+	m.vertices[types.Vertex(145)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(121),
@@ -3240,7 +3240,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(146)] = types.Edges{
+	m.vertices[types.Vertex(146)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(122),
@@ -3259,7 +3259,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(147)] = types.Edges{
+	m.vertices[types.Vertex(147)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(137),
@@ -3274,7 +3274,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(148)] = types.Edges{
+	m.vertices[types.Vertex(148)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(123),
@@ -3289,7 +3289,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(149)] = types.Edges{
+	m.vertices[types.Vertex(149)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(123),
@@ -3308,7 +3308,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(150)] = types.Edges{
+	m.vertices[types.Vertex(150)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(138),
@@ -3323,7 +3323,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(151)] = types.Edges{
+	m.vertices[types.Vertex(151)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(150),
@@ -3342,7 +3342,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(152)] = types.Edges{
+	m.vertices[types.Vertex(152)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(138),
@@ -3357,7 +3357,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(153)] = types.Edges{
+	m.vertices[types.Vertex(153)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(111),
@@ -3416,7 +3416,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(154)] = types.Edges{
+	m.vertices[types.Vertex(154)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(139),
@@ -3447,7 +3447,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(155)] = types.Edges{
+	m.vertices[types.Vertex(155)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(154),
@@ -3466,7 +3466,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(156)] = types.Edges{
+	m.vertices[types.Vertex(156)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(140),
@@ -3501,7 +3501,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(157)] = types.Edges{
+	m.vertices[types.Vertex(157)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Ship"),
 			Destination:    types.Vertex(115),
@@ -3540,7 +3540,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(158)] = types.Edges{
+	m.vertices[types.Vertex(158)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(141),
@@ -3559,7 +3559,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(159)] = types.Edges{
+	m.vertices[types.Vertex(159)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(158),
@@ -3582,7 +3582,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(160)] = types.Edges{
+	m.vertices[types.Vertex(160)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(128),
@@ -3601,7 +3601,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(161)] = types.Edges{
+	m.vertices[types.Vertex(161)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(107),
@@ -3632,7 +3632,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(162)] = types.Edges{
+	m.vertices[types.Vertex(162)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(136),
@@ -3643,7 +3643,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(163)] = types.Edges{
+	m.vertices[types.Vertex(163)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(111),
@@ -3674,7 +3674,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(164)] = types.Edges{
+	m.vertices[types.Vertex(164)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(147),
@@ -3693,7 +3693,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(165)] = types.Edges{
+	m.vertices[types.Vertex(165)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(123),
@@ -3724,7 +3724,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(166)] = types.Edges{
+	m.vertices[types.Vertex(166)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(151),
@@ -3743,7 +3743,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(167)] = types.Edges{
+	m.vertices[types.Vertex(167)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(153),
@@ -3762,7 +3762,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(168)] = types.Edges{
+	m.vertices[types.Vertex(168)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(155),
@@ -3777,7 +3777,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(169)] = types.Edges{
+	m.vertices[types.Vertex(169)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(156),
@@ -3788,7 +3788,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(170)] = types.Edges{
+	m.vertices[types.Vertex(170)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(157),
@@ -3803,7 +3803,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(171)] = types.Edges{
+	m.vertices[types.Vertex(171)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(173),
@@ -3818,7 +3818,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(172)] = types.Edges{
+	m.vertices[types.Vertex(172)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(128),
@@ -3833,7 +3833,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(173)] = types.Edges{
+	m.vertices[types.Vertex(173)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(160),
@@ -3852,7 +3852,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(174)] = types.Edges{
+	m.vertices[types.Vertex(174)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(161),
@@ -3867,7 +3867,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(175)] = types.Edges{
+	m.vertices[types.Vertex(175)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(162),
@@ -3882,7 +3882,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(176)] = types.Edges{
+	m.vertices[types.Vertex(176)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(163),
@@ -3901,7 +3901,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(177)] = types.Edges{
+	m.vertices[types.Vertex(177)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(144),
@@ -3916,7 +3916,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(178)] = types.Edges{
+	m.vertices[types.Vertex(178)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(164),
@@ -3931,7 +3931,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(179)] = types.Edges{
+	m.vertices[types.Vertex(179)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(164),
@@ -3946,7 +3946,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(180)] = types.Edges{
+	m.vertices[types.Vertex(180)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(153),
@@ -3977,7 +3977,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(181)] = types.Edges{
+	m.vertices[types.Vertex(181)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(166),
@@ -3996,7 +3996,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(182)] = types.Edges{
+	m.vertices[types.Vertex(182)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(181),
@@ -4011,7 +4011,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(183)] = types.Edges{
+	m.vertices[types.Vertex(183)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(166),
@@ -4030,7 +4030,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(184)] = types.Edges{
+	m.vertices[types.Vertex(184)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(153),
@@ -4069,7 +4069,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(185)] = types.Edges{
+	m.vertices[types.Vertex(185)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Underground"),
 			Destination:    types.Vertex(128),
@@ -4108,7 +4108,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(186)] = types.Edges{
+	m.vertices[types.Vertex(186)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(159),
@@ -4123,7 +4123,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(187)] = types.Edges{
+	m.vertices[types.Vertex(187)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(128),
@@ -4150,7 +4150,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(188)] = types.Edges{
+	m.vertices[types.Vertex(188)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(128),
@@ -4169,7 +4169,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(189)] = types.Edges{
+	m.vertices[types.Vertex(189)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(176),
@@ -4184,7 +4184,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(190)] = types.Edges{
+	m.vertices[types.Vertex(190)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(176),
@@ -4211,7 +4211,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(191)] = types.Edges{
+	m.vertices[types.Vertex(191)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(163),
@@ -4242,7 +4242,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(192)] = types.Edges{
+	m.vertices[types.Vertex(192)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(190),
@@ -4257,7 +4257,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(193)] = types.Edges{
+	m.vertices[types.Vertex(193)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(180),
@@ -4272,7 +4272,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(194)] = types.Edges{
+	m.vertices[types.Vertex(194)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Ship"),
 			Destination:    types.Vertex(157),
@@ -4291,7 +4291,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(195)] = types.Edges{
+	m.vertices[types.Vertex(195)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(182),
@@ -4306,7 +4306,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(196)] = types.Edges{
+	m.vertices[types.Vertex(196)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(183),
@@ -4321,7 +4321,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(197)] = types.Edges{
+	m.vertices[types.Vertex(197)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(184),
@@ -4336,7 +4336,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(198)] = types.Edges{
+	m.vertices[types.Vertex(198)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Taxi"),
 			Destination:    types.Vertex(159),
@@ -4355,7 +4355,7 @@ func (m *Map) InitializeMap() {
 		},
 	}
 
-	m.vertices[types.Vertex(199)] = types.Edges{
+	m.vertices[types.Vertex(199)] = []types.Edge{
 		{
 			Transportation: types.Transportation("Bus"),
 			Destination:    types.Vertex(128),

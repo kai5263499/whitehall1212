@@ -8,5 +8,3 @@ type Edge struct {
 	Transportation Transportation `json:"ex:transportation"`
 	Destination    Vertex         `json:"ex:destination"`
 }
-
-type Edges []Edge

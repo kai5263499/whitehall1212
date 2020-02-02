@@ -66,6 +66,7 @@ func main() {
 	flag.Parse()
 
 	outfile, err := os.Create(*outfilename)
+	checkError("outfile open", err)
 	defer outfile.Close()
 
 	fmt.Fprintf(outfile, `package whitehall1212
@@ -78,14 +79,14 @@ import (
 
 // InitializeMap builds the in-memory game board representation
 func (m *Map) InitializeMap() {
-	m.vertices = make(map[types.Vertex]types.Edges, 201)
+	m.vertices = make(map[types.Vertex][]types.Edge, 201)
 	for pos := range m.vertices {
 		m.vertices[pos] = make([]types.Edge, 0)
 	}
 `, *infilename, *outfilename)
 
 	infile, err := os.Open(*infilename)
-	checkError("file open", err)
+	checkError("infile open", err)
 	defer infile.Close()
 
 	initMap()
@@ -103,7 +104,7 @@ func (m *Map) InitializeMap() {
 		var b bytes.Buffer
 
 		fmt.Fprintf(&b, `
-	m.vertices[types.Vertex(%d)] = types.Edges{`, i)
+	m.vertices[types.Vertex(%d)] = []types.Edge{`, i)
 		for d, d1 := range vertices[i] {
 			writeOut = true
 			for _, r := range d1 {

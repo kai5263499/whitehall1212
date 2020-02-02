@@ -4,5 +4,6 @@ import "github.com/kai5263499/whitehall1212/types"
 
 type Map interface {
 	InitializeMap()
-	PossibleMoves(types.Vertex, int) ([]*types.Edges, error)
+	GetEdges(types.Vertex, []types.Transportation) ([]types.Edge, error)
+	PossibleMoves(types.Vertex, int) ([]types.Edge, error)
 }
