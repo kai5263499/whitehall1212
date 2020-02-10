@@ -114,6 +114,7 @@ func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []type
 	q := &pathQueue{}
 	heap.Init(q)
 
+	// Seed our queue with edges from the start vertex
 	edges, err := m.GetEdges(start, means)
 	if err != nil {
 		return 0, nil, err
@@ -126,6 +127,7 @@ func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []type
 		})
 	}
 
+	// Track each visited vertex and its cost
 	visited := make(map[types.Vertex]int, 0)
 
 	for q.Len() > 0 {
@@ -137,6 +139,9 @@ func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []type
 			return qi.distance, qi.path, nil
 		}
 
+		// Reject any path that goes back through the start node
+		// This is mostly to cover the edge case where we're processing
+		// the first set of edges
 		if v.Destination == start {
 			continue
 		}
@@ -155,6 +160,8 @@ func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []type
 
 			distance, found := visited[e.Destination]
 
+			// Only add a new path entry to the queue if the next vertex is either unknown or
+			// if this is a cheaper way to get to the vertex
 			if !found || newDistance < distance {
 				newPath := append(qi.path, e)
 
