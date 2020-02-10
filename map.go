@@ -4,16 +4,25 @@ package whitehall1212
 
 import (
 	"errors"
+	"fmt"
 
-	"github.com/davecgh/go-spew/spew"
+	"container/heap"
+
 	"github.com/kai5263499/whitehall1212/interfaces"
 	"github.com/kai5263499/whitehall1212/types"
 )
 
 var _ interfaces.Map = (*Map)(nil)
 
+const infinity = int(^uint(0) >> 1)
+
 func New() *Map {
-	return &Map{}
+	m := &Map{}
+
+	// The map needs to be initialized with the game board data before we can use it
+	m.initializeMap()
+
+	return m
 }
 
 type Map struct {
@@ -44,14 +53,120 @@ func (m *Map) GetEdges(vertex types.Vertex, means []types.Transportation) ([]typ
 	return v, nil
 }
 
-func (m *Map) PossibleMoves(start types.Vertex, depth int) ([]types.Edge, error) {
-	path := make([]types.Edge, 0)
+// PossibleMoves returns a slice of vertices that are depth steps away from the start Vertex
+func (m *Map) PossibleMoves(start types.Vertex, depth int, means []types.Transportation) ([]types.Vertex, error) {
+	positions := make([]types.Vertex, 0)
 
-	spew.Dump(m.vertices)
+	visited := make(map[string]bool, 0)
 
-	for i := 0; i < depth; i++ {
+	q := &moveQueue{}
+	heap.Init(q)
 
+	q.Push(queueEntry{
+		vertex:   start,
+		distance: 0,
+	})
+
+	for q.Len() > 0 {
+		qi := heap.Pop(q).(queueEntry)
+
+		if qi.distance == depth {
+
+			visitedKey := fmt.Sprintf("r-%d-%d", qi.distance, qi.vertex)
+			if _, found := visited[visitedKey]; found {
+				continue
+			}
+
+			positions = append(positions, qi.vertex)
+
+			visited[visitedKey] = true
+
+			continue
+		}
+
+		edges, err := m.GetEdges(qi.vertex, means)
+		if err != nil {
+			return nil, err
+		}
+
+		for _, edge := range edges {
+
+			distance := qi.distance + 1
+
+			dupeKey := fmt.Sprintf("e-%d-%d", distance, edge.Destination)
+			if _, found := visited[dupeKey]; found {
+				continue
+			}
+
+			q.Push(queueEntry{
+				vertex:   edge.Destination,
+				distance: distance,
+			})
+
+			visited[dupeKey] = true
+		}
 	}
 
-	return path, nil
+	return positions, nil
+}
+
+func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []types.Transportation) (int, []types.Edge, error) {
+	q := &pathQueue{}
+	heap.Init(q)
+
+	edges, err := m.GetEdges(start, means)
+	if err != nil {
+		return 0, nil, err
+	}
+
+	for _, e := range edges {
+		heap.Push(q, pathEntry{
+			path:     []types.Edge{e},
+			distance: 1,
+		})
+	}
+
+	visited := make(map[types.Vertex]int, 0)
+
+	for q.Len() > 0 {
+		qi := heap.Pop(q).(pathEntry)
+
+		v := qi.path[len(qi.path)-1]
+
+		if v.Destination == finish {
+			return qi.distance, qi.path, nil
+		}
+
+		if v.Destination == start {
+			continue
+		}
+
+		edges, err := m.GetEdges(v.Destination, means)
+		if err != nil {
+			return 0, nil, err
+		}
+
+		for _, e := range edges {
+			if e.Destination == start {
+				continue
+			}
+
+			newDistance := qi.distance + 1
+
+			distance, found := visited[e.Destination]
+
+			if !found || newDistance < distance {
+				newPath := append(qi.path, e)
+
+				heap.Push(q, pathEntry{
+					distance: newDistance,
+					path:     newPath,
+				})
+
+				visited[v.Destination] = newDistance
+			}
+		}
+	}
+
+	return 0, nil, fmt.Errorf("Unable to find a route between %d and %d", start, finish)
 }

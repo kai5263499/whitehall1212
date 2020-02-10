@@ -77,8 +77,7 @@ import (
 	"github.com/kai5263499/whitehall1212/types"
 )
 
-// InitializeMap builds the in-memory game board representation
-func (m *Map) InitializeMap() {
+func (m *Map) initializeMap() {
 	m.vertices = make(map[types.Vertex][]types.Edge, 201)
 	for pos := range m.vertices {
 		m.vertices[pos] = make([]types.Edge, 0)

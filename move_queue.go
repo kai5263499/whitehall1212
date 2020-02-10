@@ -7,7 +7,6 @@ type queueEntry struct {
 	distance int
 }
 
-// A MoveQueue is a min-heap of vertices.
 type moveQueue []queueEntry
 
 func (q moveQueue) Len() int {

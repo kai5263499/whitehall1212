@@ -27,7 +27,6 @@ func main() {
 	flag.Parse()
 
 	scotlandyard = whitehall1212.New()
-	scotlandyard.InitializeMap()
 
 	means := []types.Transportation{}
 
