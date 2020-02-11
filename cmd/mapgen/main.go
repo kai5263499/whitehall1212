@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/kai5263499/whitehall1212/types"
+	"github.com/sirupsen/logrus"
 )
 
 var (
@@ -18,7 +19,7 @@ var (
 
 func checkError(msg string, err error) {
 	if err != nil {
-		fmt.Errorf("%s err=%+#v", msg, err)
+		logrus.WithError(err).Error(msg)
 	}
 }
 
