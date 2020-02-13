@@ -29,6 +29,7 @@ func checkError(msg string, err error) {
 }
 
 const (
+	// GRAPH_NAME sets the graph name in dot
 	GRAPH_NAME = "scotlandyard"
 )
 
