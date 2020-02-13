@@ -16,6 +16,7 @@ var _ interfaces.Map = (*Map)(nil)
 
 const infinity = int(^uint(0) >> 1)
 
+// New returns a Map instance intialized with game board data
 func New() *Map {
 	m := &Map{}
 
@@ -25,10 +26,12 @@ func New() *Map {
 	return m
 }
 
+// Map represents a simple in-memory graph
 type Map struct {
 	vertices map[types.Vertex][]types.Edge
 }
 
+// GetEdges returns
 func (m *Map) GetEdges(vertex types.Vertex, means []types.Transportation) ([]types.Edge, error) {
 	v, found := m.vertices[vertex]
 
@@ -110,6 +113,8 @@ func (m *Map) PossibleMoves(start types.Vertex, depth int, means []types.Transpo
 	return positions, nil
 }
 
+// ShortestPath returns the shortest path as a slice of edges
+// between two vertices using a priority queue
 func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []types.Transportation) (int, []types.Edge, error) {
 	q := &pathQueue{}
 	heap.Init(q)
