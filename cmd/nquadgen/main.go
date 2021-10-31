@@ -26,7 +26,6 @@ func main() {
 	defer outfile.Close()
 
 	scotlandyard := whitehall1212.New()
-	scotlandyard.InitializeMap()
 
 	for i := 1; i <= 199; i++ {
 		pos := types.Vertex(i)
