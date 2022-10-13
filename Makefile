@@ -31,6 +31,7 @@ $(LINTER_PATH):
 	$(error Missing golangci: https://golangci-lint.run/usage/install)
 lint: setup
 	export GOMODCACHE=./vendor
+	$(LINTER_PATH) version
 	$(LINTER_PATH) run
 
 setup:
