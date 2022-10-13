@@ -4,8 +4,8 @@ jobs:
   lint:
     strategy:
       matrix:
-        go-version: [1.15.x, 1.16.x, 1.17.x, 1.18.x]
-        os: [ubuntu-20.04, ubuntu-22.04]
+        go-version: [1.16.x, 1.18.x]
+        os: [ubuntu-22.04]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Install Go
@@ -21,8 +21,8 @@ jobs:
   test:
     strategy:
       matrix:
-        go-version: [1.15.x, 1.16.x]
-        os: [ubuntu-20.04]
+        go-version: [1.16.x, 1.18.x]
+        os: [ubuntu-22.04]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Set up go
@@ -36,7 +36,7 @@ jobs:
         run: go test -cover
   semver:
       name: semantic version tagging on merge to master branch
-      runs-on: ubuntu-20.04
+      runs-on: ubuntu-22.04
       needs: [lint, test]
       steps:
         - name: checkout
