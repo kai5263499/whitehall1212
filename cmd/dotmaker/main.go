@@ -79,5 +79,5 @@ func main() {
 	outfile, err := os.Create(*outfilename)
 	checkError("outfile open", err)
 	defer outfile.Close()
-	fmt.Fprintf(outfile, g.String())
+	fmt.Fprint(outfile, g.String())
 }

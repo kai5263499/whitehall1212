@@ -121,7 +121,7 @@ func (m *Map) initializeMap() {
 `)
 
 		if writeOut {
-			fmt.Fprintf(outfile, b.String())
+			fmt.Fprint(outfile, b.String())
 		}
 	}
 

@@ -8,17 +8,21 @@ import (
 
 	"container/heap"
 
-	"github.com/kai5263499/whitehall1212/interfaces"
 	"github.com/kai5263499/whitehall1212/types"
 )
 
-var _ interfaces.Map = (*Map)(nil)
+// Map is the interface to game map data
+type Map interface {
+	GetEdges(types.Vertex, []types.Transportation) ([]types.Edge, error)
+	PossibleMoves(types.Vertex, int, []types.Transportation) ([]types.Vertex, error)
+	ShortestPath(types.Vertex, types.Vertex, []types.Transportation) (int, []types.Edge, error)
+}
 
-const infinity = int(^uint(0) >> 1)
+var _ Map = (*gameMap)(nil)
 
 // New returns a Map instance intialized with game board data
-func New() *Map {
-	m := &Map{}
+func New() Map {
+	m := &gameMap{}
 
 	// The map needs to be initialized with the game board data before we can use it
 	m.initializeMap()
@@ -26,13 +30,13 @@ func New() *Map {
 	return m
 }
 
-// Map represents a simple in-memory graph
-type Map struct {
+// gameMap represents a simple in-memory graph
+type gameMap struct {
 	vertices map[types.Vertex][]types.Edge
 }
 
 // GetEdges returns
-func (m *Map) GetEdges(vertex types.Vertex, means []types.Transportation) ([]types.Edge, error) {
+func (m *gameMap) GetEdges(vertex types.Vertex, means []types.Transportation) ([]types.Edge, error) {
 	v, found := m.vertices[vertex]
 
 	if !found {
@@ -57,10 +61,10 @@ func (m *Map) GetEdges(vertex types.Vertex, means []types.Transportation) ([]typ
 }
 
 // PossibleMoves returns a slice of vertices that are depth steps away from the start Vertex
-func (m *Map) PossibleMoves(start types.Vertex, depth int, means []types.Transportation) ([]types.Vertex, error) {
+func (m *gameMap) PossibleMoves(start types.Vertex, depth int, means []types.Transportation) ([]types.Vertex, error) {
 	positions := make([]types.Vertex, 0)
 
-	visited := make(map[string]bool, 0)
+	visited := make(map[string]bool)
 
 	q := &moveQueue{}
 	heap.Init(q)
@@ -115,7 +119,7 @@ func (m *Map) PossibleMoves(start types.Vertex, depth int, means []types.Transpo
 
 // ShortestPath returns the shortest path as a slice of edges
 // between two vertices using a priority queue
-func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []types.Transportation) (int, []types.Edge, error) {
+func (m *gameMap) ShortestPath(start types.Vertex, finish types.Vertex, means []types.Transportation) (int, []types.Edge, error) {
 	q := &pathQueue{}
 	heap.Init(q)
 
@@ -133,7 +137,7 @@ func (m *Map) ShortestPath(start types.Vertex, finish types.Vertex, means []type
 	}
 
 	// Track each visited vertex and its cost
-	visited := make(map[types.Vertex]int, 0)
+	visited := make(map[types.Vertex]int)
 
 	for q.Len() > 0 {
 		qi := heap.Pop(q).(pathEntry)
