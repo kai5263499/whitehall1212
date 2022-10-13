@@ -10,7 +10,7 @@ import (
 )
 
 var (
-	scotlandyard *whitehall1212.Map
+	scotlandyard whitehall1212.Map
 )
 
 func checkError(msg string, err error) {

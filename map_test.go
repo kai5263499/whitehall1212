@@ -33,7 +33,7 @@ type shortestPathTest struct {
 var _ = Describe("map", func() {
 
 	var (
-		gameMap *Map
+		gameMap Map
 	)
 
 	BeforeEach(func() {

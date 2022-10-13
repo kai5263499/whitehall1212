@@ -3,5 +3,7 @@ cmd/solver/solver
 cmd/mapgen/mapgen
 cmd/nquadgen/nquadgen
 
-sy.dot
-sy.pdf
+*.dot
+*.pdf
+
+vendor/
