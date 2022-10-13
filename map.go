@@ -20,8 +20,6 @@ type Map interface {
 
 var _ Map = (*gameMap)(nil)
 
-const infinity = int(^uint(0) >> 1)
-
 // New returns a Map instance intialized with game board data
 func New() Map {
 	m := &gameMap{}
@@ -66,7 +64,7 @@ func (m *gameMap) GetEdges(vertex types.Vertex, means []types.Transportation) ([
 func (m *gameMap) PossibleMoves(start types.Vertex, depth int, means []types.Transportation) ([]types.Vertex, error) {
 	positions := make([]types.Vertex, 0)
 
-	visited := make(map[string]bool, 0)
+	visited := make(map[string]bool)
 
 	q := &moveQueue{}
 	heap.Init(q)
@@ -139,7 +137,7 @@ func (m *gameMap) ShortestPath(start types.Vertex, finish types.Vertex, means []
 	}
 
 	// Track each visited vertex and its cost
-	visited := make(map[types.Vertex]int, 0)
+	visited := make(map[types.Vertex]int)
 
 	for q.Len() > 0 {
 		qi := heap.Pop(q).(pathEntry)
